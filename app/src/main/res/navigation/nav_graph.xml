@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frag_finances">
+
+    <fragment
+        android:id="@+id/frag_login"
+        android:name="com.maciel.murillo.finance_manager.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/loginToFinancesFrag"
+            app:destination="@id/frag_finances"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph" />
+
+        <action
+            android:id="@+id/loginToSignupFrag"
+            app:destination="@id/frag_signup"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_signup"
+        android:name="com.maciel.murillo.finance_manager.view.SignupFragment"
+        android:label="Signup"
+        tools:layout="@layout/fragment_signup">
+
+        <action
+            android:id="@+id/signupToFinancesFrag"
+            app:destination="@id/frag_finances"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph" />
+
+        <action
+            android:id="@+id/signupToLoginFrag"
+            app:destination="@id/frag_login"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"  />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_finances"
+        android:name="com.maciel.murillo.finance_manager.view.finances.FinancesFragment"
+        android:label="Finances"
+        tools:layout="@layout/fragment_finances">
+
+        <action
+            android:id="@+id/financesToAddMovementFrag"
+            app:destination="@id/frag_add_movement"/>
+
+        <action
+            android:id="@+id/financesToLoginFrag"
+            app:destination="@id/frag_login"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/frag_add_movement"
+        android:name="com.maciel.murillo.finance_manager.view.AddMovementFragment"
+        android:label="AddMovement"
+        tools:layout="@layout/fragment_add_movement" >
+
+        <argument
+            android:name="movementType"
+            app:nullable="false"
+            app:argType="com.maciel.murillo.finance_manager.model.entity.MovementType"/>
+
+    </fragment>
+
+</navigation>

@@ -1,0 +1,36 @@
+buildscript {
+
+    ext {
+        compose_version = '1.0.0-beta09'
+        kotlin_version = "1.5.10"
+    }
+
+    def nav_version = "2.3.3"
+
+    repositories {
+        google()
+        mavenCentral()
+//        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath 'com.google.gms:google-services:4.3.8'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.35'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+//        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
