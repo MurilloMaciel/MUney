@@ -19,7 +19,6 @@ import com.maciel.murillo.finance_manager.viewmodel.FinancesViewModel
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class FinancesFragment : Fragment() {
@@ -35,7 +34,11 @@ class FinancesFragment : Fragment() {
 
     private lateinit var financesAdapter: FinancesAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentFinancesBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -74,18 +77,20 @@ class FinancesFragment : Fragment() {
 
         financesViewModel.refreshMovements.observe(viewLifecycleOwner, EventObserver {
             financesAdapter.notifyDataSetChanged()
-            binding.contentFinances.tvFinancesEmpty.visibility = if (financesViewModel.movements.isEmpty()) {
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
+            binding.contentFinances.tvFinancesEmpty.visibility =
+                if (financesViewModel.movements.isEmpty()) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
         })
     }
 
     private fun setUserValues(user: User) {
         val money = NumberFormat.getCurrencyInstance().format(user.totalIncome - user.totalExpense)
         binding.contentFinances.tvMoney.text = money.toString()
-        binding.contentFinances.tvGreetings.text = String.format(resources.getString(R.string.greetings), user.name)
+        binding.contentFinances.tvGreetings.text =
+            String.format(resources.getString(R.string.greetings), user.name)
     }
 
     private fun setUpListeners() {
@@ -127,15 +132,23 @@ class FinancesFragment : Fragment() {
     private fun setUpSwipe() {
         val itemTouch = object : ItemTouchHelper.Callback() {
 
-            override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ): Int {
                 val dragFlags = ItemTouchHelper.ACTION_STATE_IDLE
                 val swipeFlasg = ItemTouchHelper.START or ItemTouchHelper.END
                 return makeMovementFlags(dragFlags, swipeFlasg)
             }
 
-            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder) = false
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ) = false
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) = deleteMovement(viewHolder.adapterPosition)
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) =
+                deleteMovement(viewHolder.adapterPosition)
         }
         ItemTouchHelper(itemTouch).attachToRecyclerView(binding.contentFinances.rvFinances)
     }

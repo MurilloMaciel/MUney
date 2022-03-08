@@ -1,21 +1,17 @@
 package com.maciel.murillo.finance_manager.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.material.MaterialTheme
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.maciel.murillo.finance_manager.compose_test.FabTest
 import com.maciel.murillo.finance_manager.databinding.FragmentSignupBinding
 import com.maciel.murillo.finance_manager.utils.EventObserver
 import com.maciel.murillo.finance_manager.viewmodel.SignupViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignupFragment : Fragment() {
@@ -31,18 +27,8 @@ class SignupFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSignupBinding.inflate(inflater, container, false).also {
-            it.composeViewSignup.setContent {
-                MaterialTheme {
-                    FabTest(
-                        text = "signup"
-                    ) {
-                        Toast.makeText(requireContext(), "signup", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }
+    ): View {
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
     }
 

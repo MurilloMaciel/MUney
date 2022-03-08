@@ -10,7 +10,6 @@ import com.maciel.murillo.finance_manager.utils.EventObserver
 import com.maciel.murillo.finance_manager.view.MainActivity.Companion.DESTINATION_FINANCES
 import com.maciel.murillo.finance_manager.viewmodel.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 const val SPLASH_TIME = 2000L
 

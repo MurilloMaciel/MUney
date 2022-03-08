@@ -3,12 +3,8 @@ package com.maciel.murillo.finance_manager.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
 import androidx.navigation.findNavController
 import com.maciel.murillo.finance_manager.R
-import com.maciel.murillo.finance_manager.compose_test.FabTest
 import com.maciel.murillo.finance_manager.databinding.ActivityMainBinding
 import com.maciel.murillo.finance_manager.extensions.safe
 import dagger.hilt.android.AndroidEntryPoint

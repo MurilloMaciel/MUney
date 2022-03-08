@@ -4,11 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.maciel.murillo.finance_manager.model.AuthError
 import com.maciel.murillo.finance_manager.model.MovementFormError
 import com.maciel.murillo.finance_manager.model.entity.FinancialMovement
 import com.maciel.murillo.finance_manager.model.repository.Repository
-import com.maciel.murillo.finance_manager.model.service.DbService
 import com.maciel.murillo.finance_manager.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -22,7 +20,7 @@ class AddMovementViewModel @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    val exceptionHandler = CoroutineExceptionHandler { context, throwable ->
+    private val exceptionHandler = CoroutineExceptionHandler { context, throwable ->
         _formError.postValue(Event(MovementFormError.SAVE))
     }
 

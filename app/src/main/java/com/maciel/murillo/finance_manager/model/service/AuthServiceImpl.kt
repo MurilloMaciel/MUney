@@ -3,8 +3,6 @@ package com.maciel.murillo.finance_manager.model.service
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.maciel.murillo.finance_manager.extensions.safe
 import com.maciel.murillo.finance_manager.extensions.toBase64
 import kotlinx.coroutines.tasks.await
