@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Finance Manager</string>
+    <string name="app_name">MUney</string>
 
     <string name="logout">Logout</string>
     <string name="title_activity_principal">PrincipalActivity</string>

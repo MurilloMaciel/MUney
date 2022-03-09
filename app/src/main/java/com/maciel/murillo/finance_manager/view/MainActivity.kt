@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
                 .findNavController()
                 .navInflater.inflate(R.navigation.nav_graph)
                 .apply {
-                    startDestination = when (intent?.getStringExtra(EXTRA_DESTINATION).safe()) {
+                    setStartDestination(when (intent?.getStringExtra(EXTRA_DESTINATION).safe()) {
                         DESTINATION_LOGIN -> R.id.frag_login
                         DESTINATION_SIGNUP -> R.id.frag_signup
                         else -> R.id.frag_finances
-                    }
+                    })
                 }
     }
 
