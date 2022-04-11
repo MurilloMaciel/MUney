@@ -2,14 +2,14 @@
 <resources>
 
     <!--Colors Expenses-->
-    <color name="colorPrimaryExpense">#6C2522</color>
-    <color name="colorPrimaryDarkExpense">#6C2522</color>
-    <color name="colorAccentExpense">#6C2522</color>
+    <color name="colorPrimaryExpense">#7A312E</color>
+    <color name="colorPrimaryDarkExpense">#7A312E</color>
+    <color name="colorAccentExpense">#7A312E</color>
 
     <!--Colors Incomes-->
-    <color name="colorPrimaryIncome">#154E40</color>
-    <color name="colorPrimaryDarkIncome">#154E40</color>
-    <color name="colorAccentIncome">#154E40</color>
+    <color name="colorPrimaryIncome">#307363</color>
+    <color name="colorPrimaryDarkIncome">#307363</color>
+    <color name="colorAccentIncome">#307363</color>
 
     <color name="colorPrimary">#FF3D3F47</color>
     <color name="colorPrimaryDark">#252627</color>
